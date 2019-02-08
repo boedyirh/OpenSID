@@ -43,7 +43,7 @@
 					<div class="box-header with-border">
 						<a href="<?=site_url('penduduk/form')?>" class="btn btn-social btn-flat btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block" title="Tambah Data"><i class="fa fa-plus"></i> Penduduk Domisili</a>
 						<?php if ($grup==1): ?>
-							<a href="#confirm-delete" title="Hapus Data Terpilih" onclick="deleteAllBox('mainform', '<?=site_url("penduduk/delete_all/$p/$o")?>')" class="btn btn-social btn-flat btn-danger btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block hapus-terpilih"><i class='fa fa-trash-o'></i> Hapus Data Terpilih</a>
+							<a href="#confirm-delete" title="Hapus Data" onclick="deleteAllBox('mainform', '<?=site_url("penduduk/delete_all/$p/$o")?>')" class="btn btn-social btn-flat btn-danger btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class='fa fa-trash-o'></i> Hapus Data</a>
 						<?php endif; ?>
 						<div class="btn-group-vertical">
 							<a class="btn btn-social btn-flat btn-info btn-sm" data-toggle="dropdown"><i class='fa fa-arrow-circle-down'></i> Pilih Aksi Lainnya</a>
@@ -177,7 +177,7 @@
 														<?php foreach ($main as $data): ?>
 															<tr>
 																<td><input type="checkbox" name="id_cb[]" value="<?= $data['id']?>" /></td>
-																<td><?= $data['no']?></td>
+																<td class="text-center"><?= $data['no']?></td>
 																<td nowrap>
 																	<div class="btn-group">
 																		<button type="button" class="btn btn-social btn-flat btn-info btn-sm" data-toggle="dropdown"><i class='fa fa-arrow-circle-down'></i> Pilih Aksi</button>
@@ -230,10 +230,10 @@
 																<td><a href="<?= site_url("rtm/anggota/$p/$o/$data[id_rtm]")?>"><?= $data['no_rtm']?></a></td>
 																<td><?= strtoupper($data['alamat'])?></td>
 																<td><?= strtoupper(ununderscore($data['dusun']))?></td>
-																<td><?= $data['rw']?></td>
-																<td><?= $data['rt']?></td>
+																<td class="text-center"><?= $data['rw']?></td>
+																<td class="text-center"><?= $data['rt']?></td>
 																<td><?= $data['pendidikan']?></td>
-																<td><?= $data['umur']?></td>
+																<td class="text-center"><?= $data['umur']?></td>
 																<td><?= $data['pekerjaan']?></td>
 																<td><?= $data['kawin']?></td>
 															</tr>
