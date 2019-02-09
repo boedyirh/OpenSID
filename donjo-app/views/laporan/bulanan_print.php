@@ -143,7 +143,7 @@
           </tr>
           <tr>
             <td class="text-center">1</td>
-            <td>Pindah keluar Desa/Kelurahan/td>
+            <td>Pindah keluar Desa/Kelurahan</td>
             <td class="text-center"><?= show_zero_as($rincian_pindah['DESA_L'],'-')?></td>
             <td class="text-center"><?= show_zero_as($rincian_pindah['DESA_P'],'-')?></td>
             <td class="text-center"><?= show_zero_as(($rincian_pindah['DESA_L']+$rincian_pindah['DESA_P']),'-')?></td>
@@ -198,6 +198,7 @@
             <td class="text-center"><?= show_zero_as(($rincian_pindah['TOTAL_KK_L']+$rincian_pindah['TOTAL_KK_P']),'-')?></td>
           </tr>
           <tr>
+            <td colspan="8" class="no-border-kecuali-atas">&nbsp;</td>
             <td colspan="8" class="no-border-kecuali-atas">&nbsp;</td>
           </tr>
         </table>
