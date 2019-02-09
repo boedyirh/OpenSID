@@ -28,18 +28,18 @@
 				<th class="text-center">L+P</th>
 			</tr>
 			<tr>
-				<th class="text-center italic">1</th>
-				<th class="text-center italic" colspan="2">2</th>
-				<th class="text-center italic">3</th>
-				<th class="text-center italic">4</th>
-				<th class="text-center italic">5</th>
-				<th class="text-center italic">6</th>
-				<th class="text-center italic">7</th>
-				<th class="text-center italic">8</th>
-				<th class="text-center italic">9</th>
-				<th class="text-center italic">10</th>
-				<th class="text-center italic">11</th>
-				<th class="text-center italic">12</th>
+				<th class="text-center"><em>1</em></th>
+				<th class="text-center" colspan="2"><em>2</em></th>
+				<th class="text-center"><em>3</em></th>
+				<th class="text-center"><em>4</em></th>
+				<th class="text-center"><em>5</em></th>
+				<th class="text-center"><em>6</em></th>
+				<th class="text-center"><em>7</em></th>
+				<th class="text-center"><em>8</em></th>
+				<th class="text-center"><em>9</em></th>
+				<th class="text-center"><em>10</em></th>
+				<th class="text-center"><em>11</em></th>
+				<th class="text-center"><em>12</em></th>
 			</tr
 		</thead>
 		<tbody>
