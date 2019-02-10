@@ -39,6 +39,19 @@ class Program_bantuan extends CI_Controller {
 		$this->load->view('nav', $nav);
 		$data = $this->program_bantuan_model->get_program($p, FALSE);
 		$data['tampil'] = 0;
+   	$data["asaldana"] = array(
+				"0" => "Desa",
+				"1" => "Pemkab/Pemkot",
+				"2" => "Provinsi",
+        "3" => "Pusat",
+				"4" => "Lain-lain"
+			);
+      
+    $data["statusprogram"] = array(
+				"0" => "Non-Aktif",
+				"1" => "Aktif",
+  			"2" => "Selesai"
+			);  
 
 		$data['per_page'] = $_SESSION['per_page'];
 
