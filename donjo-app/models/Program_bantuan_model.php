@@ -12,12 +12,12 @@ class Program_bantuan_model extends CI_Model {
 	{
 		if ($sasaran > 0)
 		{
-			$strSQL = "SELECT p.id, p.nama, p.sasaran, p.ndesc, p.sdate, p.edate, p.userid, p.status
+			$strSQL = "SELECT p.id, p.nama, p.sasaran, p.ndesc, p.sdate, p.edate, p.userid, p.statusprogram
 				FROM program p WHERE p.sasaran=".$sasaran;
 		}
 		else
 		{
-			$strSQL = "SELECT p.id, p.nama, p.sasaran, p.ndesc, p.sdate, p.edate, p.userid, p.status, CONCAT('50',p.id) as lap
+			$strSQL = "SELECT p.id, p.nama, p.sasaran, p.ndesc, p.sdate, p.edate, p.userid, p.statusprogram, CONCAT('50',p.id) as lap
 				FROM program p WHERE 1";
 		}
 		$query = $this->db->query($strSQL);
@@ -48,7 +48,7 @@ class Program_bantuan_model extends CI_Model {
 		$no_kk = $this->keluarga_model->get_nokk($kk_id);
 		$sasaran = 2;
 		$strSQL = "
-			SELECT p.id, p.nama, p.sasaran, p.ndesc, p.sdate, p.edate, p.userid, p.status, CONCAT('50',p.id) as lap, pp.peserta
+			SELECT p.id, p.nama, p.sasaran, p.ndesc, p.sdate, p.edate, p.userid, p.statusprogram, CONCAT('50',p.id) as lap, pp.peserta
 			FROM program p
 			LEFT OUTER JOIN program_peserta pp ON p.id = pp.program_id AND pp.peserta = '$no_kk'
 			WHERE p.sasaran = $sasaran";
@@ -223,7 +223,7 @@ class Program_bantuan_model extends CI_Model {
 		if ($slug === false)
 		{
 			$response['paging'] = $this->paging_bantuan($p);
-			$strSQL   = "SELECT p.id, p.nama, p.sasaran, p.ndesc, p.sdate, p.edate, p.userid, p.status FROM program p WHERE 1";
+			$strSQL   = "SELECT p.id, p.nama, p.sasaran, p.ndesc, p.sdate,p.asaldana, p.edate, p.userid, p.statusprogram FROM program p WHERE 1";
 			$strSQL .= ' LIMIT ' .$response["paging"]->offset. ',' .$response["paging"]->per_page;
 			$query = $this->db->query($strSQL);
 			$data = $query->result_array();
@@ -234,7 +234,7 @@ class Program_bantuan_model extends CI_Model {
 		{
 			// Untuk program bantuan, $slug berbentuk '50<program_id>'
 			$slug = preg_replace("/^50/", "", $slug);
-			$strSQL = "SELECT p.id, p.nama, p.sasaran, p.ndesc, p.sdate, p.edate, p.userid, p.status FROM program p WHERE p.id = ".$slug;
+			$strSQL = "SELECT p.id, p.nama, p.sasaran, p.ndesc, p.sdate, p.edate, p.asaldana,p.userid, p.statusprogram FROM program p WHERE p.id = ".$slug;
 			$query = $this->db->query($strSQL);
 			$hasil0 = $query->row_array();
 
@@ -613,6 +613,8 @@ class Program_bantuan_model extends CI_Model {
 		$data = array(
 			'sasaran' => $this->input->post('cid'),
 			'nama' => fixSQL($this->input->post('nama')),
+      'asaldana' => fixSQL($this->input->post('asaldana')),
+      'statusprogram' => fixSQL($this->input->post('statusprogram')),
 			'ndesc' => fixSQL($this->input->post('ndesc')),
 			'userid' =>  $_SESSION['user'],
 			'sdate' => date("Y-m-d",strtotime($this->input->post('sdate'))),
@@ -753,10 +755,11 @@ class Program_bantuan_model extends CI_Model {
 		// TODO: kolom 'status' belum digunakan, jadi di-comment dulu
 		$strSQL = "UPDATE `program` SET `sasaran`='".$this->input->post('cid')."',
 		`nama`='".fixSQL($this->input->post('nama'))."',
+    `asaldana`='".fixSQL($this->input->post('asaldana'))."',
 		`ndesc`='".fixSQL($this->input->post('ndesc'))."',
 		`sdate`='".date("Y-m-d",strtotime($this->input->post('sdate')))."',
-		`edate`='".date("Y-m-d",strtotime($this->input->post('edate')))."'
-		-- `status`='".$this->input->post('status')."'
+		`edate`='".date("Y-m-d",strtotime($this->input->post('edate')))."',
+		`statusprogram`='".$this->input->post('statusprogram')."'
 		 WHERE id=".$id;
 
 		$hasil = $this->db->query($strSQL);
