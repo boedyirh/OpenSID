@@ -28,14 +28,14 @@
 												<table class="table table-bordered table-striped dataTable table-hover">
 													<thead class="bg-gray disabled color-palette">
 														<tr>
-															<th>No</th>
-															<th>Aksi</th>
-															<th nowrap>Nama Program</th>
-                              <th nowrap>Asal Dana</th>
-                              <th nowrap>Jumlah <br>Peserta</th>
-															<th nowrap>Masa Berlaku</th>
-															<th>Sasaran</th>
-                             	<th>Status</th>
+															<th class="text-center">No</th>
+															<th class="text-center">Aksi</th>
+															<th nowrap class="text-center">Nama Program</th>
+                              <th nowrap class="text-center">Asal Dana</th>
+                              <th nowrap class="text-center">Jumlah <br>Peserta</th>
+															<th nowrap class="text-center">Masa Berlaku</th>
+															<th class="text-center">Sasaran</th>
+                             	<th class="text-center">Status</th>
 														</tr>
 													</thead>
 													<tbody>
