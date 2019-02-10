@@ -469,6 +469,14 @@ function get_identitas()
 	return $string;
 }
 
+
+function HitungPesertaProgram($pid) {
+	$ci =& get_instance();	
+	$JumlahPeserta	= $ci->db->query("SELECT count(*) as Hitung FROM program_peserta WHERE program_id='$pid' limit 1 ")->row();
+	$JumlahPeserta	= empty($JumlahPeserta) ? "0" : $JumlahPeserta->Hitung;
+ return $JumlahPeserta;	
+}
+
 // fix str aneh utk masuk ke db
 // TODO: Jangan pernah gunakan saya lagi bro,,,,,, :p
 function fixSQL($str, $encode_ent = false) {
