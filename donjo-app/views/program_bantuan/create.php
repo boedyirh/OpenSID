@@ -24,7 +24,7 @@
 							<?php $cid = @$_REQUEST["cid"]; ?>
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Sasaran Program</label>
-								<div class="col-sm-8">
+								<div class="col-sm-3">
 									<select class="form-control input-sm required" name="cid" id="cid">
 										<option value="">Pilih Sasaran Program <?= $cid;?></option>
 										<option value="1" <?php if ($cid == 1): ?>selected<?php endif; ?>>Penduduk Perorangan</option>
@@ -44,6 +44,21 @@
 								<label class="col-sm-3 control-label" for="ndesc">Keterangan</label>
 								<div class="col-sm-8">
 									<textarea id="ndesc" name="ndesc" class="form-control input-sm required" placeholder="Isi Keterangan" style="height: 200px;"></textarea>
+								</div>
+							</div>  
+              
+             <div class="form-group">
+								<label class="col-sm-3 control-label">Asal Dana</label>
+								<div class="col-sm-3">
+									<select class="form-control input-sm required" name="asaldana" id="asaldana">
+              	<?php $asaldana = @$_REQUEST["asaldana"]; ?>
+										<option value="">Asal Dana Bantuan <?= $asaldana;?></option>
+                    <option value="0" <?php if ($asaldana == '0'): ?>selected<?php endif; ?>>Desa</option>
+										<option value="1" <?php if ($asaldana == '1'): ?>selected<?php endif; ?>>Pemkab/Pemkot</option>
+										<option value="2" <?php if ($asaldana == '2'): ?>selected<?php endif; ?>>Provinsi</option>
+										<option value="3" <?php if ($asaldana == '3'): ?>selected<?php endif; ?>>Pusat</option>
+										<option value="4" <?php if ($asaldana == '4'): ?>selected<?php endif; ?>>Lain-lain</option>
+									</select>
 								</div>
 							</div>
 							<div class="form-group">
@@ -65,6 +80,19 @@
 									</div>
 								</div>
              	</div>
+              							<div class="form-group">
+								<label class="col-sm-3 control-label">Status</label>
+								<div class="col-sm-3">
+									<select class="form-control input-sm required" name="statusprogram" id="statusprogram">
+                  	<?php $statusprogram = @$_REQUEST["statusprogram"]; ?>
+										<option value="">Status Program <?= $statusprogram;?></option>
+										<option value="1" <?php if ($statusprogram == '1'): ?>selected<?php endif; ?>>Aktif</option>
+										<option value="0" <?php if ($statusprogram == '0'): ?>selected<?php endif; ?>>Non-Aktif</option>
+										<option value="2" <?php if ($statusprogram == '2'): ?>selected<?php endif; ?>>Telah Terlaksana</option>
+									 
+									</select>
+								</div>
+							</div>
 						</div>
 						<div class='box-footer'>
 							<div class='col-xs-12'>

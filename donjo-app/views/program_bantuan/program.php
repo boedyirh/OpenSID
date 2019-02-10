@@ -31,8 +31,11 @@
 															<th>No</th>
 															<th>Aksi</th>
 															<th nowrap>Nama Program</th>
+                              <th nowrap>Asal Dana</th>
+                              <th nowrap>Jumlah <br>Peserta</th>
 															<th nowrap>Masa Berlaku</th>
 															<th>Sasaran</th>
+                             	<th>Status</th>
 														</tr>
 													</thead>
 													<tbody>
@@ -40,18 +43,30 @@
 															$nomer = $paging->offset;
 															foreach ($program as $item):
 																$nomer++;
+                                $jumlahpeserta = 0+HitungPesertaProgram($item[id]);
+                                
 														?>
 															<tr>
-																<td><?= $nomer?></td>
+																<td align="center"><?= $nomer?></td>
 																<td nowrap>
 																	<a href="<?= site_url("program_bantuan/detail/1/$item[id]/")?>" class="btn bg-purple btn-flat btn-sm"  title="Rincian"><i class="fa fa-list"></i></a>
 																	<a href="<?= site_url("program_bantuan/edit/$item[id]/")?>" class="btn bg-orange btn-flat btn-sm"  title="Ubah"><i class="fa fa-edit"></i></a>
-																	<a href="#" data-href="<?= site_url("program_bantuan/hapus/$item[id]/")?>" class="btn bg-maroon btn-flat btn-sm"  title="Hapus" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash-o"></i></a>
-																</td>
+																 	<?php if ($jumlahpeserta == 0)
+                                  {   ?>
+                                  
+                                        	<a href="#" data-href="<?= site_url("program_bantuan/hapus/$item[id]/")?>" class="btn bg-maroon btn-flat btn-sm"  title="Hapus" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash-o"></i></a>
+													     <?php   }  ?>
+                                  
+                              	</td>
+                                
 																<td width="60%"><a href="<?= site_url('program_bantuan/detail/1/'.$item["id"].'/')?>"><?= $item["nama"] ?></a></td>
-																<td nowrap><?= fTampilTgl($item["sdate"],$item["edate"]);?></td>
-																<td nowrap><a href="<?= site_url('program_bantuan/sasaran/'.$item["sasaran"].'/'.$sasaran[$item["sasaran"]].'')?>"><?= $sasaran[$item["sasaran"]]?></a></td>
-															</tr>
+																<td nowrap ><?= $asaldana[$item["asaldana"]] ?></td>
+                                <td nowrap align="center" ><?php echo  $jumlahpeserta; ?></td>
+                              	<td nowrap><?= fTampilTgl($item["sdate"],$item["edate"]);?></td>
+																<td nowrap><?= $sasaran[$item["sasaran"]]?></td>
+														  	<td nowrap align="center" ><?=  $statusprogram[$item["statusprogram"]] ?></td>
+														   
+                            	</tr>
 														<?php endforeach; ?>
 													</tbody>
 												</table>
