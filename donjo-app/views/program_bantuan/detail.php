@@ -98,7 +98,7 @@
 																	<td class="text-center"><?= $item["kartu_nik"];?></td>
 																	<td><?= $item["kartu_nama"];?></td>
 																	<td nowrap><?= $item["kartu_tempat_lahir"];?></td>
-																	<td nowrap class="text-center"><?= $item["kartu_tanggal_lahir"];?></td>
+																	<td nowrap class="text-center"><?php echo date('d-m-Y' , strtotime($item["kartu_tanggal_lahir"]));?></td>
 																	<td><?= $item["kartu_alamat"];?></td>
 																</tr>
 															<?php endforeach; ?>
